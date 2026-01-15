@@ -1,0 +1,101 @@
+.registro-container {
+  min-height: 100vh;
+  background-color: var(--light-bg);
+}
+
+.registro-header {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  color: var(--white);
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.registro-header {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.registro-header h1 {
+  font-size: 28px;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.registro-card {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.form-actions button {
+  flex: 1;
+  max-width: 200px;
+}
+
+@media (max-width: 768px) {
+  .registro-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .registro-header h1 {
+    font-size: 24px;
+  }
+
+  .registro-card {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions button {
+    max-width: none;
+  }
+}

@@ -1,0 +1,148 @@
+.dashboard-container {
+  min-height: 100vh;
+  background-color: var(--light-bg);
+}
+
+.dashboard-header {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  color: var(--white);
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.admin-info {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.dashboard-nav {
+  background-color: var(--white);
+  padding: 15px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+}
+
+.dashboard-content {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.autos-section,
+.alert-section {
+  margin-bottom: 40px;
+}
+
+.autos-section h2,
+.alert-section h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 10px;
+}
+
+.alert-section {
+  background-color: #fef5e7;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid var(--warning-color);
+}
+
+.autos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.auto-card {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--accent-color);
+}
+
+.auto-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+.auto-card.alert {
+  border-left-color: var(--warning-color);
+  background-color: #fffbf0;
+}
+
+.auto-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: var(--primary-color);
+}
+
+.auto-card p {
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+.auto-card strong {
+  color: var(--text-dark);
+}
+
+.auto-card .btn-secondary {
+  width: 100%;
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .dashboard-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .dashboard-header h1 {
+    font-size: 24px;
+  }
+
+  .autos-grid {
+    grid-template-columns: 1fr;
+  }
+}
