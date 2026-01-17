@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api";
+const API_URL = "https://back-taller-mecanico.onrender.com/api";
 
 export const authService = {
   register: async (correo, contraseña, tallerName) => {
@@ -90,7 +90,7 @@ export const autosService = {
     });
     if (!res.ok)
       throw new Error(
-        (await res.json()).error || "Error fetching autos mantenimiento"
+        (await res.json()).error || "Error fetching autos mantenimiento",
       );
     return res.json();
   },
