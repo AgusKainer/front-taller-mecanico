@@ -148,7 +148,11 @@ export default function HistorialCliente() {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{auto.descripcionUltimaReparacion}</td>
+                      <td>
+                        {auto.descripcionUltimaReparacion
+                          .replace(/\[\d{4}-\d{2}-\d{2}T.*?\]/g, "")
+                          .trim()}
+                      </td>
                       <td>
                         {new Date(
                           auto.fechaUltimaReparacion,
