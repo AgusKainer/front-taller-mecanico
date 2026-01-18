@@ -36,18 +36,21 @@ export default function Dashboard() {
     }
   };
 
-    const handleDelete = async (id) => {
-      if (!window.confirm('¿Eliminar este auto? Esta acción no se puede deshacer.')) return;
-      try {
-        setLoading(true);
-        await autosService.delete(id, token);
-        await cargarDatos();
-      } catch (err) {
-        console.error('Error eliminando auto:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const handleDelete = async (id) => {
+    if (
+      !window.confirm("¿Eliminar este auto? Esta acción no se puede deshacer.")
+    )
+      return;
+    try {
+      setLoading(true);
+      await autosService.delete(id, token);
+      await cargarDatos();
+    } catch (err) {
+      console.error("Error eliminando auto:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleLogout = () => {
     dispatch(logout());
@@ -140,11 +143,38 @@ export default function Dashboard() {
                       {auto.estado}
                     </span>
                   </p>
-                  {auto.descripcionUltimaReparacion && (
+                  {/* {auto.descripcionUltimaReparacion && (
                     <p>
                       <strong>Última reparación:</strong>{" "}
                       {auto.descripcionUltimaReparacion}
                     </p>
+                  )} */}
+                  {auto.descripcionUltimaReparacion && (
+                    <section className="info-section">
+                      <h2>🛠️ Última Reparación</h2>
+                      <table className="repair-table">
+                        <thead>
+                          <tr>
+                            <th>Reparación</th>
+                            <th>Fecha</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{auto.descripcionUltimaReparacion}</td>
+                            <td>
+                              {new Date(
+                                auto.fechaUltimaReparacion,
+                              ).toLocaleDateString("es-ES", {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                              })}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </section>
                   )}
                   <button
                     onClick={() => navigate(`/registro-auto?id=${auto.id}`)}

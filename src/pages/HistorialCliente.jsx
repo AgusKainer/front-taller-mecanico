@@ -136,8 +136,35 @@ export default function HistorialCliente() {
                 </div>
               )}
             </section>
-
             {auto.descripcionUltimaReparacion && (
+              <section className="info-section">
+                <h2>📝 Última Reparación</h2>
+                <table className="repair-table">
+                  <thead>
+                    <tr>
+                      <th>Reparación</th>
+                      <th>Fecha</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{auto.descripcionUltimaReparacion}</td>
+                      <td>
+                        {new Date(
+                          auto.fechaUltimaReparacion,
+                        ).toLocaleDateString("es-ES", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </section>
+            )}
+
+            {/* {auto.descripcionUltimaReparacion && (
               <section className="info-section">
                 <h2>📝 Última Reparación</h2>
                 <div className="repair-info">
@@ -160,7 +187,7 @@ export default function HistorialCliente() {
                   </p>
                 </div>
               </section>
-            )}
+            )} */}
           </div>
         )}
       </div>
