@@ -150,7 +150,11 @@ export default function HistorialCliente() {
                     <tr>
                       <td>
                         {auto.descripcionUltimaReparacion
-                          .replace(/\[\d{4}-\d{2}-\d{2}T.*?\]/g, "")
+                          // elimina TODOS los timestamps ISO entre corchetes
+                          .replace(
+                            /\[\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z\]/g,
+                            "",
+                          )
                           .trim()}
                       </td>
                       <td>
@@ -167,7 +171,6 @@ export default function HistorialCliente() {
                 </table>
               </section>
             )}
-
             {/* {auto.descripcionUltimaReparacion && (
               <section className="info-section">
                 <h2>📝 Última Reparación</h2>
